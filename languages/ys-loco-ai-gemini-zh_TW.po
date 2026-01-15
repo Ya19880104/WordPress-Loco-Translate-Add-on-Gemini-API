@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: YS Loco AI Translate via Gemini 1.0.0\n"
+"Report-Msgid-Bugs-To: https://yangsheep.com\n"
+"POT-Creation-Date: 2024-01-16 00:00+0000\n"
+"PO-Revision-Date: 2026-01-16 03:00+0800\n"
+"Last-Translator: Yangsheep <gn00492@gmail.com>\n"
+"Language-Team: Chinese (Taiwan)\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.0\n"
+"X-Domain: ys-loco-ai-gemini\n"
+
+#. Name of the plugin
+msgid "YS Loco AI Translate via Gemini"
+msgstr "YS Loco AI Translate via Gemini"
+
+#. Description of the plugin
+msgid "An add-on for Loco Translate to provide automatic translations using Google Gemini API."
+msgstr "Loco Translate 的擴充模組，使用 Google Gemini API 提供自動翻譯功能。"
+
+#: includes/class-ys-gemini-settings.php:33
+msgid "YS Loco AI Translate via Gemini Settings"
+msgstr "YS Loco AI Gemini 翻譯設定"
+
+#: includes/class-ys-gemini-settings.php:39
+msgid "Gemini API Key"
+msgstr "Gemini API 金鑰"
+
+#: includes/class-ys-gemini-settings.php:45
+msgid "Gemini Model"
+msgstr "Gemini 模型"
+
+#: includes/class-ys-gemini-settings.php:51
+#. translators: %s: URL to Gemini models
+msgid "Default: gemini-1.5-flash. See available models at %s"
+msgstr "預設值：gemini-1.5-flash。查看可用模型請至 %s"
+
+#: includes/class-ys-gemini-settings.php:58
+msgid "Custom Prompt Template"
+msgstr "自訂提示詞模板 (Prompt)"
+
+#: includes/class-ys-gemini-settings.php:64
+msgid "Use %language% for target language and %source% for source text/JSON items."
+msgstr "使用 %language% 代表目標語言，%source% 代表原始文字/JSON項目。"
+
+#: includes/class-ys-gemini-api.php:19
+msgid "Gemini API Key is missing."
+msgstr "缺少 Gemini API 金鑰。"
+
+#: includes/class-ys-gemini-api.php:70
+msgid "Failed to parse Gemini response as JSON."
+msgstr "無法將 Gemini 回應解析為 JSON。"
+
+#: includes/class-ys-gemini-api.php:74
+msgid "Invalid response from Gemini API."
+msgstr "Gemini API 回應無效。"
