@@ -16,6 +16,10 @@ class YS_Gemini_API {
         $this->api_url = "https://generativelanguage.googleapis.com/v1beta/models/{$this->model}:generateContent";
 	}
 
+    public function set_api_key( $key ) {
+        $this->api_key = $key;
+    }
+
 	public function translate_batch( array $texts, $target_locale ) {
 		if ( empty( $this->api_key ) ) {
 			return new WP_Error( 'missing_api_key', __( 'Gemini API Key is missing.', 'ys-loco-ai-gemini' ) );

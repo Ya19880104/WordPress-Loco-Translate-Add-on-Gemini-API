@@ -1,0 +1,351 @@
+/* CSS Variables for Theme Support */
+:root {
+    --ys-gemini-primary: #8b5cf6;
+    --ys-gemini-primary-hover: #7c3aed;
+    --ys-gemini-bg-glass: rgba(255, 255, 255, 0.95);
+    --ys-gemini-text: #1f2937;
+    --ys-gemini-border: #e5e7eb;
+    --ys-gemini-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --ys-gemini-bg-glass: rgba(31, 41, 55, 0.95);
+        --ys-gemini-text: #f3f4f6;
+        --ys-gemini-border: #374151;
+        --ys-gemini-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* Modal Overlay */
+.ys-gemini-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 99999;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.ys-gemini-modal-overlay.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+
+/* Modal Container */
+.ys-gemini-modal {
+    background: var(--ys-gemini-bg-glass);
+    color: var(--ys-gemini-text);
+    width: 600px;
+    max-width: 90%;
+    border-radius: 16px;
+    box-shadow: var(--ys-gemini-shadow);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid var(--ys-gemini-border);
+}
+
+.ys-gemini-modal-overlay.active .ys-gemini-modal {
+    transform: scale(1);
+}
+
+/* Header */
+.ys-gemini-modal-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--ys-gemini-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ys-gemini-modal-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ys-gemini-close-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #9ca3af;
+    transition: color 0.2s;
+    line-height: 1;
+}
+
+.ys-gemini-close-btn:hover {
+    color: var(--ys-gemini-text);
+}
+
+/* Tabs */
+.ys-gemini-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--ys-gemini-border);
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.ys-gemini-tab {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #6b7280;
+    transition: all 0.2s;
+    border-bottom: 2px solid transparent;
+}
+
+.ys-gemini-tab:hover {
+    color: var(--ys-gemini-primary);
+    background: rgba(139, 92, 246, 0.05);
+}
+
+.ys-gemini-tab.active {
+    color: var(--ys-gemini-primary);
+    border-bottom-color: var(--ys-gemini-primary);
+    background: white;
+}
+
+@media (prefers-color-scheme: dark) {
+    .ys-gemini-tab.active {
+        background: rgba(255, 255, 255, 0.05);
+    }
+}
+
+/* Body */
+.ys-gemini-modal-body {
+    padding: 24px;
+    min-height: 200px;
+}
+
+.ys-gemini-tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.ys-gemini-tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Form Elements */
+.ys-gemini-textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--ys-gemini-border);
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--ys-gemini-text);
+    font-family: monospace;
+    font-size: 0.85rem;
+    resize: vertical;
+    box-sizing: border-box;
+    margin-bottom: 1em;
+}
+
+.ys-gemini-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--ys-gemini-primary);
+    color: white;
+    text-decoration: none;
+    gap: 8px;
+}
+
+.ys-gemini-btn:hover {
+    background: var(--ys-gemini-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+/* Toolbar Button Injection */
+.ys-gemini-fieldset {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+/* Hide Native Auto Translate Button */
+button[data-loco="auto"] {
+    display: none !important;
+}
+
+/* Unique Class for Toolbar Button */
+.ys-ai-tool-trigger,
+.ys-ai-translate-trigger {
+    background-color: #8b5cf6 !important;
+    color: white !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    margin-left: 5px !important;
+    border: none !important;
+    box-shadow: none !important;
+    vertical-align: top !important;
+    border-radius: 4px !important;
+    padding: 4px 10px !important;
+    /* Match loco button size approx */
+    height: 28px !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+}
+
+.ys-ai-translate-trigger {
+    background-color: #3b82f6 !important;
+    /* Blue for translate */
+}
+
+.ys-ai-tool-trigger:hover,
+.ys-ai-translate-trigger:hover {
+    filter: brightness(110%);
+    transform: translateY(-1px);
+}
+
+.ys-ai-tool-trigger .dashicons {
+    color: white !important;
+    font-size: 18px !important;
+    width: 18px !important;
+    height: 18px !important;
+}
+
+/* --- THEME OVERRIDES FOR NATIVE LOCO MODALS --- */
+
+/* Target Loco Translate jQuery UI Dialogs */
+.ui-dialog.loco-modal {
+    background: var(--ys-gemini-bg-glass) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid var(--ys-gemini-border) !important;
+    border-radius: 16px !important;
+    box-shadow: var(--ys-gemini-shadow) !important;
+    color: var(--ys-gemini-text) !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif !important;
+    padding: 0 !important;
+    /* Let children handle padding */
+}
+
+/* Modal Title Bar */
+.ui-dialog.loco-modal .ui-dialog-titlebar {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid var(--ys-gemini-border) !important;
+    border-radius: 16px 16px 0 0 !important;
+    padding: 20px 24px !important;
+    position: relative !important;
+}
+
+.ui-dialog.loco-modal .ui-dialog-title {
+    font-size: 1.2rem !important;
+    font-weight: 600 !important;
+    background: linear-gradient(135deg, #8b5cf6, #3b82f6) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    float: none !important;
+}
+
+/* Close Button */
+.ui-dialog.loco-modal .ui-dialog-titlebar-close {
+    border: none !important;
+    background: transparent !important;
+    /* User Requested Overrides */
+    position: absolute !important;
+    right: 0px !important;
+    top: 0px !important;
+    margin: 0 !important;
+    width: 40px !important;
+    height: 40px !important;
+    transform: none !important;
+
+    opacity: 0.6;
+    transition: opacity 0.2s;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.ui-dialog.loco-modal .ui-dialog-titlebar-close .ui-icon {
+    /* Center the icon inside */
+    position: static !important;
+    margin: 0 !important;
+}
+
+.ui-dialog.loco-modal .ui-dialog-titlebar-close:hover {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.05) !important;
+    border-radius: 0 16px 0 16px !important;
+    /* Nice touch corner */
+}
+
+/* Modal Content */
+.ui-dialog.loco-modal .ui-dialog-content {
+    background: transparent !important;
+    padding: 24px !important;
+    color: var(--ys-gemini-text) !important;
+}
+
+/* Buttons inside Loco Modal */
+.ui-dialog.loco-modal .button-primary {
+    background: var(--ys-gemini-primary) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 8px 20px !important;
+    height: auto !important;
+    line-height: 1.5 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    transition: all 0.2s !important;
+}
+
+.ui-dialog.loco-modal .button-primary:hover {
+    background: var(--ys-gemini-primary-hover) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3) !important;
+}
+
+.ui-dialog.loco-modal .button-primary:disabled {
+    background: #e5e7eb !important;
+    color: #9ca3af !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Progress bar inside modal */
+#loco-job-progress {
+    font-weight: 500;
+    color: #8b5cf6;
+    margin-top: 15px;
+}
