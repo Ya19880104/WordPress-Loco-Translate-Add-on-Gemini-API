@@ -40,7 +40,7 @@ class YS_Loco_Integration {
                  'ys-gemini-editor', 
                  YS_LOCO_GEMINI_URL . 'assets/js/ys-gemini-editor.js', 
                  array('jquery'), 
-                 '1.0.4', 
+                 '2.2.9', 
                  true 
              );
              
@@ -55,7 +55,7 @@ class YS_Loco_Integration {
                  'ys-gemini-style',
                  YS_LOCO_GEMINI_URL . 'assets/css/ys-gemini-style.css',
                  array(),
-                 '1.0.4'
+                 '1.0.5'
              );
         }
     }
