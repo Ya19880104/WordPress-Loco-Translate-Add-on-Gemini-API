@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: YS Loco AI Translate via Gemini 1.0.0\n"
+"Project-Id-Version: YS Loco AI Translate via Gemini 2.3.0\n"
 "Report-Msgid-Bugs-To: https://yangsheep.com\n"
 "POT-Creation-Date: 2024-01-16 00:00+0000\n"
-"PO-Revision-Date: 2026-01-16 03:00+0800\n"
+"PO-Revision-Date: 2026-01-21 12:50+0800\n"
 "Last-Translator: Yangsheep <gn00492@gmail.com>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh_TW\n"
@@ -58,3 +58,70 @@ msgstr "無法將 Gemini 回應解析為 JSON。"
 #: includes/class-ys-gemini-api.php:74
 msgid "Invalid response from Gemini API."
 msgstr "Gemini API 回應無效。"
+
+#: includes/class-ys-loco-integration.php (i18n)
+msgid "YS AI 翻譯工具"
+msgstr "YS AI 翻譯工具"
+
+msgid "匯出 JSON"
+msgstr "匯出 JSON"
+
+msgid "匯入 JSON"
+msgstr "匯入 JSON"
+
+msgid "僅匯出未翻譯的字串"
+msgstr "僅匯出未翻譯的字串"
+
+msgid "下載適合 AI 翻譯的 JSON 檔案。"
+msgstr "下載適合 AI 翻譯的 JSON 檔案。"
+
+msgid "格式：{\"原文\": \"譯文\"}（複數形式可以是陣列）"
+msgstr "格式：{\"原文\": \"譯文\"}（複數形式可以是陣列）"
+
+msgid "下載 JSON"
+msgstr "下載 JSON"
+
+msgid "上傳檔案"
+msgstr "上傳檔案"
+
+msgid "貼上 JSON"
+msgstr "貼上 JSON"
+
+msgid "拖曳 JSON 檔案到此處或點擊選擇"
+msgstr "拖曳 JSON 檔案到此處或點擊選擇"
+
+msgid "在此貼上您的 JSON 翻譯內容..."
+msgstr "在此貼上您的 JSON 翻譯內容..."
+
+msgid "覆寫現有譯文"
+msgstr "覆寫現有譯文"
+
+msgid "啟用模糊匹配"
+msgstr "啟用模糊匹配"
+
+msgid "忽略大小寫和標點符號的差異"
+msgstr "忽略大小寫和標點符號的差異"
+
+msgid "匯入翻譯"
+msgstr "匯入翻譯"
+
+msgid "已匯入 %d 筆翻譯。請記得儲存！"
+msgstr "已匯入 %d 筆翻譯。請記得儲存！"
+
+msgid "匯入失敗："
+msgstr "匯入失敗："
+
+msgid "請選擇檔案"
+msgstr "請選擇檔案"
+
+msgid "JSON 格式無效"
+msgstr "JSON 格式無效"
+
+msgid "處理中..."
+msgstr "處理中..."
+
+msgid "工具"
+msgstr "工具"
+
+msgid "AI 翻譯"
+msgstr "AI 翻譯"

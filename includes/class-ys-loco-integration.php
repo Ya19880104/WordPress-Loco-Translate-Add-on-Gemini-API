@@ -40,15 +40,46 @@ class YS_Loco_Integration {
                  'ys-gemini-editor', 
                  YS_LOCO_GEMINI_URL . 'assets/js/ys-gemini-editor.js', 
                  array('jquery'), 
-                 '2.2.9', 
+                 '2.3.0', 
                  true 
              );
              
-             // Pass PHP data to JS
+             // Pass PHP data and i18n strings to JS
              $prompt_template = get_option( 'ys_loco_gemini_prompt', "You are a %language% translator. Please translate..." );
              wp_localize_script( 'ys-gemini-editor', 'ysLocoSettings', array(
                  'prompt' => $prompt_template,
                  'is_admin' => current_user_can('manage_options'),
+                 // i18n strings for UI
+                 'i18n' => array(
+                     // Modal title
+                     'modal_title' => __( 'YS AI 翻譯工具', 'ys-loco-ai-gemini' ),
+                     // Tab labels
+                     'export_json' => __( '匯出 JSON', 'ys-loco-ai-gemini' ),
+                     'import_json' => __( '匯入 JSON', 'ys-loco-ai-gemini' ),
+                     // Export tab
+                     'export_untranslated_only' => __( '僅匯出未翻譯的字串', 'ys-loco-ai-gemini' ),
+                     'export_description' => __( '下載適合 AI 翻譯的 JSON 檔案。', 'ys-loco-ai-gemini' ),
+                     'export_format' => __( '格式：{"原文": "譯文"}（複數形式可以是陣列）', 'ys-loco-ai-gemini' ),
+                     'download_json' => __( '下載 JSON', 'ys-loco-ai-gemini' ),
+                     // Import tab
+                     'upload_file' => __( '上傳檔案', 'ys-loco-ai-gemini' ),
+                     'paste_json' => __( '貼上 JSON', 'ys-loco-ai-gemini' ),
+                     'drop_file_here' => __( '拖曳 JSON 檔案到此處或點擊選擇', 'ys-loco-ai-gemini' ),
+                     'paste_placeholder' => __( '在此貼上您的 JSON 翻譯內容...', 'ys-loco-ai-gemini' ),
+                     'overwrite_existing' => __( '覆寫現有譯文', 'ys-loco-ai-gemini' ),
+                     'fuzzy_matching' => __( '啟用模糊匹配', 'ys-loco-ai-gemini' ),
+                     'fuzzy_description' => __( '忽略大小寫和標點符號的差異', 'ys-loco-ai-gemini' ),
+                     'import_btn' => __( '匯入翻譯', 'ys-loco-ai-gemini' ),
+                     // Messages
+                     'import_success' => __( '已匯入 %d 筆翻譯。請記得儲存！', 'ys-loco-ai-gemini' ),
+                     'import_error' => __( '匯入失敗：', 'ys-loco-ai-gemini' ),
+                     'no_file_selected' => __( '請選擇檔案', 'ys-loco-ai-gemini' ),
+                     'invalid_json' => __( 'JSON 格式無效', 'ys-loco-ai-gemini' ),
+                     'processing' => __( '處理中...', 'ys-loco-ai-gemini' ),
+                     // Button labels
+                     'tools_btn' => __( '工具', 'ys-loco-ai-gemini' ),
+                     'ai_translate_btn' => __( 'AI 翻譯', 'ys-loco-ai-gemini' ),
+                 ),
              ));
              
              wp_enqueue_style(

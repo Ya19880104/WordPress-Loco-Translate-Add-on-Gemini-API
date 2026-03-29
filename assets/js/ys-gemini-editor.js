@@ -5,6 +5,30 @@
 jQuery(document).ready(function ($) {
 
     // ===========================================
+    // I18N Strings (must be before button injection)
+    // ===========================================
+    var i18n = (typeof ysLocoSettings !== 'undefined' && ysLocoSettings.i18n) ? ysLocoSettings.i18n : {
+        // Fallback English strings
+        modal_title: 'YS AI Translation Tools',
+        export_json: 'Export JSON',
+        import_json: 'Import JSON',
+        export_untranslated_only: 'Export Untranslated Strings Only',
+        export_description: 'Downloads a JSON file suitable for AI translation.',
+        export_format: 'Format: {"Source String": "Translation"} (plural forms can be arrays)',
+        download_json: 'Download JSON',
+        upload_file: 'Upload File',
+        paste_json: 'Paste JSON',
+        drop_file_here: 'Click to upload or drag JSON file here',
+        paste_placeholder: 'Paste your JSON here...',
+        overwrite_existing: 'Overwrite existing translations',
+        fuzzy_matching: 'Fuzzy match (ignore case/whitespace differences)',
+        import_btn: 'Start Import',
+        import_success: 'Imported %d translations. Don\'t forget to SAVE.',
+        tools_btn: 'Tools',
+        ai_translate_btn: 'AI Translate'
+    };
+
+    // ===========================================
     // BUTTON INJECTION
     // ===========================================
     function injectButton() {
@@ -17,7 +41,7 @@ jQuery(document).ready(function ($) {
         var $fieldset = $('<fieldset class="ys-gemini-fieldset"></fieldset>');
 
         // AI Translate Button (triggers native auto-translate)
-        var $btnTranslate = $('<button type="button" class="button has-icon ys-ai-translate-trigger" title="AI Auto Translate"><i class="dashicons dashicons-translation"></i> AI Translate</button>');
+        var $btnTranslate = $('<button type="button" class="button has-icon ys-ai-translate-trigger" title="' + i18n.ai_translate_btn + '"><i class="dashicons dashicons-translation"></i> ' + i18n.ai_translate_btn + '</button>');
         $btnTranslate.on('click', function (e) {
             e.preventDefault();
             if ($autoBtn.length) {
@@ -28,7 +52,7 @@ jQuery(document).ready(function ($) {
         });
 
         // Tools Button (opens modal)
-        var $btnTools = $('<button type="button" class="button has-icon ys-ai-tool-trigger" title="Import/Export JSON"><i class="dashicons dashicons-superhero"></i> Tools</button>');
+        var $btnTools = $('<button type="button" class="button has-icon ys-ai-tool-trigger" title="' + i18n.tools_btn + '"><i class="dashicons dashicons-superhero"></i> ' + i18n.tools_btn + '</button>');
         $btnTools.on('click', function (e) {
             e.preventDefault();
             openModal();
@@ -60,12 +84,12 @@ jQuery(document).ready(function ($) {
     <div class="ys-gemini-modal-overlay" id="ysGeminiModal">
         <div class="ys-gemini-modal">
             <div class="ys-gemini-modal-header">
-                <h2>YS AI Translation Tools</h2>
+                <h2>${i18n.modal_title}</h2>
                 <button class="ys-gemini-close-btn">&times;</button>
             </div>
             <div class="ys-gemini-tabs">
-                <div class="ys-gemini-tab active" data-tab="export">Export JSON</div>
-                <div class="ys-gemini-tab" data-tab="import">Import JSON</div>
+                <div class="ys-gemini-tab active" data-tab="export">${i18n.export_json}</div>
+                <div class="ys-gemini-tab" data-tab="import">${i18n.import_json}</div>
             </div>
             <div class="ys-gemini-modal-body">
                 <!-- Export Tab -->
@@ -73,15 +97,15 @@ jQuery(document).ready(function ($) {
                     <div class="ys-gemini-flex-row">
                         <label class="ys-gemini-label">
                             <input type="checkbox" id="ysExportUntranslatedOnly"> 
-                            Export Untranslated Strings Only
+                            ${i18n.export_untranslated_only}
                         </label>
                     </div>
                     <p style="color:#666; font-size:0.9em; margin-bottom:15px;">
-                        Downloads a JSON file suitable for AI translation. <br>
-                        Format: <code>{"Source String": "Translation"}</code> (plural forms can be arrays)
+                        ${i18n.export_description} <br>
+                        <code>${i18n.export_format}</code>
                     </p>
                     <button class="ys-gemini-btn" id="ysBtnDownload">
-                        Download JSON
+                        ${i18n.download_json}
                     </button>
                 </div>
 
@@ -90,10 +114,10 @@ jQuery(document).ready(function ($) {
                     <!-- Import Method Toggle -->
                     <div style="display:flex; gap:10px; margin-bottom:15px;">
                         <button type="button" id="ysImportModeFile" class="ys-import-mode-btn active" style="flex:1; padding:8px; border:1px solid #8b5cf6; background:#8b5cf6; color:#fff; border-radius:6px; cursor:pointer;">
-                            <i class="dashicons dashicons-upload"></i> Upload File
+                            <i class="dashicons dashicons-upload"></i> ${i18n.upload_file}
                         </button>
                         <button type="button" id="ysImportModePaste" class="ys-import-mode-btn" style="flex:1; padding:8px; border:1px solid #e5e7eb; background:#fff; color:#374151; border-radius:6px; cursor:pointer;">
-                            <i class="dashicons dashicons-clipboard"></i> Paste JSON
+                            <i class="dashicons dashicons-clipboard"></i> ${i18n.paste_json}
                         </button>
                     </div>
                     
@@ -101,7 +125,7 @@ jQuery(document).ready(function ($) {
                     <div id="ysImportFileArea" style="margin-bottom:15px;">
                         <label class="ys-file-upload-zone" for="ysImportFile">
                             <i class="dashicons dashicons-upload" style="font-size:32px; width:32px; height:32px; color:#8b5cf6;"></i>
-                            <span style="font-size:16px; margin-top:10px; display:block;">Click to upload or drag JSON file here</span>
+                            <span style="font-size:16px; margin-top:10px; display:block;">${i18n.drop_file_here}</span>
                             <input type="file" id="ysImportFile" accept=".json" style="display:none;">
                             <span id="ysFileName" style="display:block; margin-top:5px; color:#6b7280; font-size:13px;"></span>
                         </label>
@@ -109,23 +133,23 @@ jQuery(document).ready(function ($) {
                     
                     <!-- Paste JSON Area (hidden by default) -->
                     <div id="ysImportPasteArea" style="margin-bottom:15px; display:none;">
-                        <textarea id="ysImportPasteText" placeholder="Paste your JSON here..." style="width:100%; height:150px; border:1px dashed #8b5cf6; border-radius:8px; padding:12px; font-family:monospace; font-size:12px; resize:vertical;"></textarea>
+                        <textarea id="ysImportPasteText" placeholder="${i18n.paste_placeholder}" style="width:100%; height:150px; border:1px dashed #8b5cf6; border-radius:8px; padding:12px; font-family:monospace; font-size:12px; resize:vertical;"></textarea>
                     </div>
                     
                     <div style="margin-bottom:10px;">
                         <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
                             <input type="checkbox" id="ysImportOverwrite"> 
-                            <span>Overwrite existing translations</span>
+                            <span>${i18n.overwrite_existing}</span>
                         </label>
                     </div>
                     <div style="margin-bottom:15px;">
                         <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
                             <input type="checkbox" id="ysImportFuzzy"> 
-                            <span>Fuzzy match (ignore case/whitespace differences)</span>
+                            <span>${i18n.fuzzy_matching}</span>
                         </label>
                     </div>
                     <button type="button" id="ysBtnImport" class="ys-gemini-btn" style="width:100%">
-                        <i class="dashicons dashicons-download"></i> Start Import
+                        <i class="dashicons dashicons-download"></i> ${i18n.import_btn}
                     </button>
                     <div id="ysImportStatus" style="margin-top:10px; text-align:center; font-size:13px; color:#6b7280;"></div>
                 </div>
