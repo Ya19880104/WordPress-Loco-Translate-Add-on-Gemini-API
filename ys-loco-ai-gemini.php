@@ -3,7 +3,7 @@
  * Plugin Name: YS Loco AI Translate via Gemini
  * Plugin URI: https://yangsheep.com.tw
  * Description: An add-on for Loco Translate to provide automatic translations using Google Gemini API.
- * Version:           1.1.8
+ * Version:           1.2.0
  * Author: Yangsheep
  * Author URI: https://yangsheep.com.tw
  * Text Domain: ys-loco-ai-gemini
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'YS_LOCO_GEMINI_VERSION', '1.1.8' );
+define( 'YS_LOCO_GEMINI_VERSION', '1.2.0' );
 define( 'YS_LOCO_GEMINI_PATH', plugin_dir_path( __FILE__ ) );
 define( 'YS_LOCO_GEMINI_URL', plugin_dir_url( __FILE__ ) );
 
