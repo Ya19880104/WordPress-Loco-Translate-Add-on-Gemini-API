@@ -1,1 +1,6 @@
 .claude/
+
+# Vendor（排除但保留 hub-client）
+vendor/
+!vendor/autoload.php
+!vendor/yangsheep/
